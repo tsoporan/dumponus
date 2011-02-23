@@ -1,0 +1,273 @@
+/*
+Copyright (c) 2009, Yahoo! Inc. All rights reserved.
+Code licensed under the BSD License:
+http://developer.yahoo.net/yui/license.txt
+version: 2.8.0r4
+*/
+html{color:#000;background:#FFF;}body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,button,textarea,p,blockquote,th,td{margin:0;padding:0;}table{border-collapse:collapse;border-spacing:0;}fieldset,img{border:0;}address,caption,cite,code,dfn,em,strong,th,var,optgroup{font-style:inherit;font-weight:inherit;}del,ins{text-decoration:none;}li{list-style:none;}caption,th{text-align:left;}h1,h2,h3,h4,h5,h6{font-size:100%;font-weight:normal;}q:before,q:after{content:'';}abbr,acronym{border:0;font-variant:normal;}sup{vertical-align:baseline;}sub{vertical-align:baseline;}legend{color:#000;}input,button,textarea,select,optgroup,option{font-family:inherit;font-size:inherit;font-style:inherit;font-weight:inherit;}input,button,textarea,select{*font-size:100%;}
+body{font:13px/1.231 arial,helvetica,clean,sans-serif;*font-size:small;*font:x-small;}select,input,button,textarea,button{font:99% arial,helvetica,clean,sans-serif;}table{font-size:inherit;font:100%;}pre,code,kbd,samp,tt{font-family:monospace;*font-size:108%;line-height:100%;}
+header,footer,aside,section,article,nav { display: block; }
+/* -- end resets -- */
+html {
+    height: 100%;
+    width: 100%;
+    background: #eee;
+}
+body {
+    font-family: 'Arial', sans-serif;
+    font-size: 100%;
+    height: 100%;
+    width: 100%;
+    margin: 0 auto;
+    color: #111;
+    background: #eee;
+}
+/*-- LINKS --*/
+a { 
+    color: #4f98bd;
+    text-decoration: none;
+}
+a:hover { 
+    text-decoration: underline;
+}
+.blue { color: #4f98bd; }
+.helptext { font-size: 85%; }
+.errorlist {
+    margin: 10px 0;
+}
+.errorlist li {
+    background: red;
+    padding: 3px;
+    color: #fff;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+}
+img { max-width: 100%; }
+strong { font-weight: bold;}
+em { font-style: oblique; }
+h1,h2,h3,h4,h5,h6 { font-weight: bold; }
+
+header {
+    overflow: hidden;
+    width: 100%;
+    background: #333;
+    border-bottom: 2px solid #111;
+    margin-bottom: 20px;
+}
+
+#logo a {
+	color: #fff;
+	display: block;
+	float: left;
+	text-decoration: none;
+    margin:10px;
+}
+nav {
+	float: right;
+    margin: 10px; 
+}
+nav li {
+	display: inline;
+}
+nav li a {
+	color: #fff;
+	text-decoration: none;
+	background: #4f98bd;
+	padding: 3px 5px;
+	margin: 0 5px;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	border-radius: 5px;
+	font-weight: bold;
+}
+nav li a:hover {
+	background: #111;
+    text-decoration: none;
+}
+#main {
+    background: #fff;
+    width: 90%;
+    padding: 10px;
+    margin: 0 auto 20px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+    font-size: 93%;
+}
+#main header {
+    background: none;
+    margin: 0;
+    padding: 0;
+    border: none;
+}
+#upload {
+    width: 90%;
+    border:1px #0b74a8 solid;
+    padding: 10px;
+    margin: 0 auto 20px;
+    background: #4f98bd url('/media/img/uploadbg.jpg') repeat-x;
+    overflow: hidden;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+    display:table;
+}
+#upload *{
+  display:table-cell;
+}
+#upload input {
+    width:90%;
+    margin: 0;
+    padding: none;
+}
+#upload input[type="submit"] {
+    background: #333;
+}
+#upload input[type="submit"]:hover {
+    background: #0b74a8;
+}
+
+@media only screen and (max-device-width: 480px) {
+  #upload{
+    display:none;
+  }
+}
+#latest-gallery {
+    text-align: center;
+}
+#latest-gallery p {
+    display: inline;
+    color: #fff;
+}
+#latest-gallery span {
+    margin: 0 3px 3px 3px;
+    vertical-align: top;
+    width: 125px;
+    display: table-cell;
+    display: inline-table;
+    display: inline-block;
+    background: #333;
+    padding: 5px;
+    -moz-border-radius: 0 0 3px 3px;
+    -webkit-border-bottom-left-radius: 3px;
+    -webkit-border-bottom-right-radius: 3px;
+    border-radius: 0 0 3px 3px;
+}
+#latest-gallery p img {
+    margin-bottom: 5px;
+}
+
+header { overflow: hidden; }
+
+header h2 {
+    border-bottom: 1px solid #eee;
+    margin: 0 0 20px;
+    overflow: hidden;
+    font-size: 161%;
+}
+span.management {
+    float: right;
+    font-size: 100%;
+}
+
+img#large {
+    margin: 0 auto;
+}
+/* the specific form for this is above*/
+/*FORMS*/
+form {
+  display:block;
+  margin:0 auto;
+}
+form span.helptext {
+    display: block;
+}
+form label {
+    display: block;
+    font-weight: bold;
+    margin-top: 8px;
+}
+form input {
+    border: 1px solid #ddd;
+    padding: 5px;
+    font-weight: bold;
+    margin: 3px 0;
+    -moz-border-radius: 3px;
+    -webkit-border-radius:3px;
+    border-radius: 3px;
+}
+form input[type="submit"] {
+	background: #4f98bd;
+    border: none;
+    color: #fff;
+    margin-top: 20px;
+    cursor: pointer;
+}
+form input[type="submit"]:hover {
+    background: #333;
+}
+form input[type="file"] {
+    border: none;
+    padding: 5px 0;
+}
+/* --- */
+
+div.pagination {
+    text-align: center;
+    margin: 15px 0;
+    padding: 5px 0;
+    border-top: 1px solid #eee;
+}
+div.pagination .disabled {
+    display: none;
+}
+div.pagination span.current {
+    background: #333;
+    color: #fff;
+    padding: 3px 5px;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    border-radius: 3px;
+}
+div.pagination a{
+    padding: 3px 5px;
+    background: #489fbd;
+    color: #fff;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    border-radius: 3px;
+    text-decoration: none;
+}
+div.pagination a:hover {
+    background: #333;
+}
+footer {
+    background: #333;
+    width: 90%;
+    margin: 0 auto;
+    color: #fff;
+    padding: 10px;
+    text-align: center;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+    font-size: 85%;
+    min-width:300px;
+    max-width:100%;
+    overflow:hidden;
+    display:block;
+}
+/*
+@media only screen and (max-device-width: 480px) {
+
+footer {
+    -webkit-border-radius: 0px;
+    border-radius:0px:
+    width:100%;
+    min-width:100%;
+    max-width:100%;
+    padding:10px 0;
+ }
+}
+*/

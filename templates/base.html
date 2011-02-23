@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title> dumpon.us | {% block page_title %} {% endblock %} </title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <link rel="stylesheet" type="text/css" href="/media/css/global.css" media="all" />
+    <link rel="icon" type="image/png" href="/media/img/fav.png">
+    {% block js %}
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+    <script type="text/javascript" src="/media/js/dumponus.js"></script>
+    {% endblock %}	
+</head>
+<body class="{% block body_class %}{%endblock %}">
+
+<header>
+    <h1 id="logo"><a href="{% url upload %}" title="dump on us">dumpon.<span class="blue">us</span></a></h1>
+    <nav>
+    <ul>
+    </ul>
+    </nav>
+</header><!-- end header-->
+
+{% block upload %}{% endblock %}
+
+<div id="main">
+    {% if messages %}
+        <ul id="message-list">
+        {% for message in messages %}
+            <li class="{{ message.tags }}">{{ message }}</li>
+        {% endfor %}
+        </ul>
+    {% endif %}
+    <header><h2>{% block header %}{% endblock %}</h2></header>
+    <section>
+    {% block content %}{% endblock %}
+    </section>
+</div><!-- end main -->
+
+
+<footer>
+    <p> {% now "Y" %} | <strong>dumpon.<span class="blue">us</span></strong> part of the <a href="http://udderweb.com">udderweb network</a>. </p>
+</footer> <!-- end footer-->
+
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+try {
+var pageTracker = _gat._getTracker("UA-6209577-3");
+pageTracker._trackPageview();
+} catch(err) {}</script>
+</body>
+</html>
