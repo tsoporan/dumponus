@@ -6,8 +6,8 @@ admin.autodiscover()
 urlpatterns = patterns('',
     url(r'^$', 'upload.views.upload', name='upload'),
     url(r'^b/$', 'upload.views.browse', name='browse'),
-    url(r'^d/(?P<id>\d+)/$', 'upload.views.detail', name='detail'),
-    url(r'^d/(?P<id>\d+)\.(?P<ext>\w+)$', 'upload.views.detail', name='detail_raw'),
+    url(r'^(?P<id>\d+)/$', 'upload.views.detail', name='detail'),
+    url(r'^(?P<id>\d+)\.(?P<ext>\w+)$', 'upload.views.detail', name='detail_raw'),
     url(r'^admin/', include(admin.site.urls)),
 )
 
