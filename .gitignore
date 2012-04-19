@@ -6,9 +6,6 @@
 *.wsgi 
 *.db
 .svn
-.private-settings
-media/uploads/*
-media/cache
-media/admin
-.svn
+media
 logs
+static

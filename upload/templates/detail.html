@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block main_content %}
+
+<div class="container">
+        <h2>{{ image.name|truncatechars:200 }}</h2>
+        <p><strong>extension:</strong> {{ image.ext }}</p>
+        <p><strong>created:</strong> {{ image.created|timesince }} ago</p>
+        <p><strong>size:</strong> {{ image.file.size }}</p>
+        <p><strong>raw:</strong> <a href="http://dumpon.us{% url detail_raw image.id image.ext %}">http://dumpon.us{% url detail_raw image.id image.ext %}</a></p>
+        <hr>
+        <a class="thumbnail" href="{% url detail_raw image.id image.ext %}"><img src="{{ image.file.url }}"></a>
+    </div>
+</div>    
+{% endblock main_content %}

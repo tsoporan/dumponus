@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+
+{% block main_content %}
+<div class="container">
+		<form id="fileupload" action="." method="POST" enctype="multipart/form-data">{% csrf_token %}
+        <!-- The fileupload-buttonbar contains buttons to add/delete files and start/cancel the upload -->
+        <div class="row fileupload-buttonbar">
+            <div class="span7">
+                <!-- The fileinput-button span is used to style the file input field as button -->
+                <span class="btn btn-success fileinput-button">
+                    <i class="icon-plus icon-white"></i>
+                    <span>add files</span>
+                    <input type="file" name="files[]" multiple>
+                </span>
+                <button type="submit" class="btn btn-primary start">
+                    <i class="icon-upload icon-white"></i>
+                    <span>upload all things</span>
+                </button>
+                <button type="reset" class="btn btn-warning cancel">
+                    <i class="icon-ban-circle icon-white"></i>
+                    <span>cancel</span>
+                </button>
+            </div>
+            <div class="span5">
+                <!-- The global progress bar -->
+                <div class="progress progress-success progress-striped active fade">
+                    <div class="bar" style="width:0%;"></div>
+                </div>
+            </div>
+        </div>
+        <!-- The loading indicator is shown during image processing -->
+        <div class="fileupload-loading"></div>
+        <br>
+        <!-- The table listing the files available for upload/download -->
+        <table class="table table-striped"><tbody class="files" data-toggle="modal-gallery" data-target="#modal-gallery"></tbody></table>
+    </form>
+</div>
+
+
+<div class="container">
+    <p><strong>recently</strong></p>
+    <hr>
+    {% if imgs_with_thumbs %}
+    <ul class="thumbnails">
+        {% for image, thumb in imgs_with_thumbs %}
+        <li class="span2">
+            <a href="{% url detail image.id  %}">
+                <img src="{{ thumb.url }}" class="thumbnail">
+            </a>
+        </li>		
+        {% endfor %}
+    </ul>
+    {% else %}
+    <ul class="thumbnails"></ul>
+    {% endif %}
+</div>
+
+{{ js_tmpl|safe }}
+
+{% endblock main_content %}
