@@ -3,7 +3,7 @@ import os
 
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
-PROJECT_ROOT = "/home/tsoporan/dumponus_env/dumponus"
+PROJECT_ROOT = "/home/tsoporan/dumponus"
 
 ADMINS = (
     ('Titus Soporan', 'titus@tsoporan.com'),
@@ -41,9 +41,7 @@ STATIC_ROOT = os.path.join(PROJECT_ROOT, 'static')
 
 STATIC_URL = '/static/'
 
-STATICFILES_DIRS = (
-    "/home/tsoporan/dumponus_env/dumponus/static",
-)
+STATICFILES_DIRS = ()
 
 STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.FileSystemFinder',
