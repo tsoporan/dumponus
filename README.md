@@ -3,6 +3,8 @@ dumpon.us - simple image uploader
 
 Built with Django, Twitter Bootstrap and the jQuery upload plugin.
 
+![screenshot](http://dumpon.us/d/4.png)
+
 # Requirements #
 
 * Django 1.4
