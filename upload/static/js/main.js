@@ -14,7 +14,7 @@ $(function () {
                     $.each(data.result, function(index, image){
                             
                             var html= '<li class="span2">' +
-                            '<a href="/d/'+ image.id + '/">' +
+                            '<a href="/'+ image.id + '/">' +
                             '<img class="thumbnail" src="'+ image.thumbnail_url + '"></a>' +
                             '</li>'
                     
