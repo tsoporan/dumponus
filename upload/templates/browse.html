@@ -5,6 +5,21 @@
 <div class="container">
     <p><strong>all ze images</strong></p>
     <hr>
+    <ul class="pager">
+        {% if images.has_previous %}
+        <li class="previous">
+            <a href="?page={{ images.previous_page_number }}">&larr; newer</a>
+        </li>
+        {% endif %}
+
+        {% if images.has_next %}
+        <li class="next">
+        <a href="?page={{ images.next_page_number }}">older &rarr;</a>
+        </li>
+        {% endif %}
+    </ul>
+
+    
     <ul class="thumbnails">
         {% for image, thumb in images %}
         <li class="span2">
@@ -15,7 +30,7 @@
         {% endfor %}
     </ul>
     
-    <hr>
+     <hr>
      <ul class="pager">
         {% if images.has_previous %}
         <li class="previous">
