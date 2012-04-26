@@ -1,0 +1,7 @@
+<uwsgi>
+    <pythonpath>/home/tsoporan/dumponus_env/lib/python2.6/site-packages</pythonpath>
+    <pythonpath>/home/tsoporan/dumponus_env/dumponus</pythonpath>
+    <app mountpoint="/">
+        <script>dumponus.wsgi</script>
+    </app>
+</uwsgi>

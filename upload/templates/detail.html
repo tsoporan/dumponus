@@ -10,6 +10,6 @@
         <p><strong>raw:</strong> <a href="http://dumpon.us{% url detail_raw image.id image.ext %}">http://dumpon.us{% url detail_raw image.id image.ext %}</a></p>
         <hr>
         <a class="thumbnail" href="{% url detail_raw image.id image.ext %}"><img src="{{ image.file.url }}"></a>
-    </div>
+        <hr>    
 </div>    
 {% endblock main_content %}

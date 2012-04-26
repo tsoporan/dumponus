@@ -3,7 +3,7 @@ import os
 
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
-PROJECT_ROOT = "/home/tsoporan/dumponus"
+PROJECT_ROOT = "/home/tsoporan/dumponus_env/dumponus"
 
 ADMINS = (
     ('Titus Soporan', 'titus@tsoporan.com'),
@@ -14,7 +14,7 @@ MANAGERS = ADMINS
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(PROJECT_ROOT, '_dumponus.db'),
+        'NAME': os.path.join(PROJECT_ROOT, 'db_dumponus.db'),
         'USER': '',                     
         'PASSWORD': '',                
         'HOST': '',                   
