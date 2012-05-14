@@ -5,7 +5,6 @@ from django.http import HttpResponse, HttpResponseBadRequest, Http404
 from django.utils import simplejson
 from sorl.thumbnail import get_thumbnail
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
-from django.conf import settings
 
 #passing to template because causes django template errors otherwise
 js_tmpl = """
@@ -64,7 +63,6 @@ js_tmpl = """
                 <i class="icon-trash icon-white"></i>
                 <span>{%=locale.fileupload.destroy%}</span>
             </button>
-            <input type="checkbox" name="delete" value="1">
         </td>
     </tr>
 {% } %}
@@ -110,11 +108,25 @@ def upload(request):
 
         return HttpResponse(resp, mimetype='application/json')
 
-    images = imgs_with_thumbs(Image.objects.order_by('-created'), amount=settings.RECENT_IMAGES)
+    amount = request.GET.get('a', 25)
+    page   = request.GET.get('p', 1)
     
+    images_thumbs = imgs_with_thumbs(Image.objects.order_by('-created'))
+ 
+    paginator = Paginator(images_thumbs, amount)
+    
+    try:
+        images = paginator.page(page)
+    except PageNotAnInteger:
+        images = paginator.page(1)
+    except EmptyPage: #out of range, give last results
+        images = paginator.page(paginator.num_pages)
+
     return render(request, 'upload.html', {
         'js_tmpl': js_tmpl,
-        'imgs_with_thumbs': images, 
+        'images': images, 
+        'amount': amount,
+        'page': page,
     })
 
 def detail(request, id, ext=None):
@@ -127,24 +139,3 @@ def detail(request, id, ext=None):
         return HttpResponse(image.file, mimetype = 'image/' + ext)
 
     return render(request, 'detail.html', {'image': image})
-
-
-def browse(request):
-    
-    images = imgs_with_thumbs(Image.objects.order_by('-created'))
-    
-    paginator = Paginator(images, settings.PAGINATE_BY)
-    
-    page = request.GET.get('page')
-
-    try:
-        images = paginator.page(page)
-    except PageNotAnInteger:
-        images = paginator.page(1)
-    except EmptyPage: #out of range, give last results
-        images = paginator.page(paginator.num_pages)
-
-    
-    return render(request, 'browse.html', {
-        'images': images,
-    })

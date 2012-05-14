@@ -36,13 +36,40 @@
     </form>
 </div>
 
-
 <div class="container">
-    <p><strong>recently</strong></p>
+        <div class="btn-group">
+            <a class="btn btn-info dropdown-toggle" data-toggle="dropdown" href="#">
+                View 
+                <span class="caret"></span>
+            </a>
+
+            <ul class="dropdown-menu">
+                <li><a href="?a=25&p={{ page }}">25</a></li>
+                <li><a href="?a=50&p={{ page }}">50</a></li>
+                <li><a href="?a=75&p={{ page }}">75</a></li>
+                <li><a href="?a=100&p={{ page }}">100</a></li>
+            </ul>
+        </div>
+    
     <hr>
-    {% if imgs_with_thumbs %}
+    
+    {% if images %}
+    <ul class="pager">
+        {% if images.has_previous %}
+        <li class="previous">
+            <a href="?a={{ amount }}&p={{ images.previous_page_number }}">&larr; newer</a>
+        </li>
+        {% endif %}
+
+        {% if images.has_next %}
+        <li class="next">
+            <a href="?a={{ amount }}&p={{ images.next_page_number }}">older &rarr;</a>
+        </li>
+        {% endif %}
+    </ul>
+
     <ul class="thumbnails">
-        {% for image, thumb in imgs_with_thumbs %}
+        {% for image, thumb in images %}
         <li class="span2">
             <a href="{% url detail image.id  %}">
                 <img src="{{ thumb.url }}" class="thumbnail">
@@ -50,8 +77,24 @@
         </li>		
         {% endfor %}
     </ul>
+    
+    <ul class="pager">
+    {% if images.has_previous %}
+    <li class="previous">
+        <a href="?a={{ amount }}&p={{ images.previous_page_number }}">&larr; newer</a>
+    </li>
+    {% endif %}
+
+    {% if images.has_next %}
+    <li class="next">
+        <a href="?a={{ amount }}&p={{ images.next_page_number }}">older &rarr;</a>
+    </li>
+    {% endif %}
+    </ul>
+    <hr>
+    
     {% else %}
-    <ul class="thumbnails"></ul>
+        <ul class="thumbnails"></ul>
     {% endif %}
 </div>
 

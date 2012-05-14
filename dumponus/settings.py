@@ -109,7 +109,3 @@ LOGGING = {
         },
     }
 }
-
-RECENT_IMAGES = 25
-
-PAGINATE_BY = 30 
