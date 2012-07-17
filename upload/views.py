@@ -89,6 +89,9 @@ def upload(request):
 
         fname, ext = os.path.splitext(tmp.name)
 
+        if not ext:
+            return HttpResponseBadRequest("All filenames must have an extension.")
+
         img = Image.objects.create(
             file = tmp,    
             ext = ext[1:], #strip period
